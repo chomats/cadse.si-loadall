@@ -49,7 +49,7 @@ import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
  */
 public class LoadJob {
 
-	public static final String	CADSES_TO_EXECUTE	= "fr.imag.adele.addcadse";
+	public static final String	CADSES_TO_EXECUTE	= "fr.imag.adele.cadse.execute";
 
 	/** The Constant PLUGIN_ID. */
 	public static final String	PLUGIN_ID			= "fede.tool.workspace.view";	//$NON-NLS-1$

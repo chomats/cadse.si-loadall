@@ -98,9 +98,9 @@ public class LoadAll implements ILoadAllService {
 		return workspaceCU;
 	}
 
-	public static ILoadAllService getInstance() {
-		return INSTANCE;
-	}
+	//public static ILoadAllService getInstance() {
+	//	return INSTANCE;
+	//}
 
 	/*
 	 * (non-Javadoc)
