@@ -1,55 +1,91 @@
 Manifest-Version: 1.0
-Export-Package: fr.imag.adele.fede.workspace.si.loadall;version="2.2.1
- "
-iPOJO-Components: component { $immediate="true" $classname="fr.imag.ad
- ele.fede.workspace.si.loadall.LoadAll" $factory="fr.imag.adele.fede.w
- orkspace.si.loadall.LoadAll" $architecture="true" callback { $transit
- ion="validate" $method="start" }manipulation { field { $name="platfor
- mEclipseService" $type="fr.imag.adele.fede.workspace.as.platformeclip
- se.IPlatformEclipse" }field { $name="persistenceService" $type="fr.im
- ag.adele.fede.workspace.as.persistence.IPersistence" }field { $name="
- loadCadseModelService" $type="fr.imag.adele.fede.workspace.as.initmod
- el.IInitModel" }field { $name="workspaceCU" $type="fr.imag.adele.cads
- e.core.CadseDomain" }field { $name="eclipseService" $type="fr.imag.ad
- ele.fede.workspace.as.eclipse.IEclipse" }method { $name="$init" }meth
- od { $name="start" }method { $name="getPersistenceService" $return="f
- r.imag.adele.fede.workspace.as.persistence.IPersistence" }method { $n
- ame="getInitModelService" $return="fr.imag.adele.fede.workspace.as.in
- itmodel.IInitModel" }method { $name="getCadseDomain" $return="fr.imag
- .adele.cadse.core.CadseDomain" }method { $name="getPlatformEclipseSer
- vice" $return="fr.imag.adele.fede.workspace.as.platformeclipse.IPlatf
- ormEclipse" }method { $arguments="{boolean}" $name="openDialog" $retu
- rn="fr.imag.adele.cadse.core.CadseRuntime[]" }interface { $name="fr.i
- mag.adele.fede.workspace.si.loadall.ILoadAllService" }}requires { $fi
- eld="workspaceCU" $optional="true" $filter="(sam.domain.root=Workspac
- e)" }requires { $field="loadCadseModelService" $optional="false" }req
- uires { $field="persistenceService" $optional="false" }requires { $fi
- eld="platformEclipseService" $optional="false" }requires { $field="ec
- lipseService" $optional="false" }}instance { $component="fr.imag.adel
- e.fede.workspace.si.loadall.LoadAll" $name="fr.imag.adele.cadse.si.wo
- rkspace.loadall.instance" }
-Bundle-ClassPath: .
-Bundle-Name: fr.imag.adele.cadse.si.workspace.loadall
-Bundle-Localization: plugin
-Created-By: envsam & iPOJO
-Require-Bundle: org.eclipse.ui,org.eclipse.ui.ide,org.eclipse.ui.workb
- ench
-Bundle-Vendor: Adele/LIG/ Grenoble University, France
-Eclipse-LazyStart: false
-ipojo-auto-start: true
-Bundle-Version: 2.2.1.qualifier
 Bundle-ManifestVersion: 2
+Bundle-Name: fr.imag.adele.cadse.si.workspace.loadall
+Bundle-SymbolicName: fr.imag.adele.cadse.si.workspace.loadall;singleton:=true
+Bundle-Vendor: Adele/LIG/ Grenoble University, France
+Bundle-Version: 2.2.1.qualifier
+Bundle-Localization: plugin
+Bundle-ClassPath: .
 Bundle-Description: Bundle fr.imag.adele.cadse.si.workspace.loadall
-Import-Package: fede.workspace.role.initmodel;version=1.0.0, org.eclip
- se.core.runtime, fr.imag.adele.cadse.core.impl.internal;version=2.2.1
- , org.apache.felix.ipojo;version=1.2.0, fr.imag.adele.fede.workspace.
- as.initmodel;version=1.0.0, fr.imag.adele.fede.workspace.as.platforme
- clipse;version=1.0.0, org.osgi.service.log;version=1.3, fr.imag.adele
- .fede.workspace.as.persistence;version=1.0.0, org.apache.felix.ipojo.
- architecture;version=1.2.0, fr.imag.adele.cadse.core;version=2.2.1, f
- r.imag.adele.fede.workspace.as.eclipse;version=1.0.0, org.osgi.servic
- e.cm;version=1.2, fr.imag.adele.fede.workspace.si.loadall;version=2.2
- .1, org.eclipse.swt.widgets
-Bundle-SymbolicName: fr.imag.adele.cadse.si.workspace.loadall;singleto
- n:=true
+Eclipse-LazyStart: false
+Export-Package: fr.imag.adele.fede.workspace.si.loadall;version="2.2.1"
+Import-Package: fede.workspace.role.initmodel;version="1.0.0",
+ fr.imag.adele.cadse.core;version="2.2.1",
+ fr.imag.adele.cadse.core.impl.internal;version="2.2.1",
+ fr.imag.adele.fede.workspace.as.eclipse;version="1.0.0",
+ fr.imag.adele.fede.workspace.as.initmodel;version="1.0.0",
+ fr.imag.adele.fede.workspace.as.persistence;version="1.0.0",
+ fr.imag.adele.fede.workspace.as.platformeclipse;version="1.0.0",
+ fr.imag.adele.fede.workspace.si.loadall;version="2.2.1",
+ org.apache.felix.ipojo;version="1.2.0",
+ org.apache.felix.ipojo.architecture;version="1.2.0",
+ org.eclipse.core.runtime,
+ org.eclipse.swt.widgets,
+ org.osgi.service.cm;version="1.2",
+ org.osgi.service.log;version="1.3"
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench
+Created-By: envsam & iPOJO
+iPOJO-Components: component { $immediate="true" $classname="fr.imag.ade
+ le.fede.workspace.si.loadall.LoadAll" $factory="fr.imag.adele.fede.wor
+ kspace.si.loadall.LoadAll" $architecture="true" callback { $transition
+ ="validate" $method="start" }manipulation { field { $name="__Fpersiste
+ nceService" $type="boolean" }field { $name="__Mstart" $type="boolean" 
+ }field { $name="persistenceService" $type="fr.imag.adele.fede.workspac
+ e.as.persistence.IPersistence" }field { $name="__FeclipseService" $typ
+ e="boolean" }field { $name="__MgetPlatformEclipseService" $type="boole
+ an" }field { $name="__MopenDialog$boolean" $type="boolean" }field { $n
+ ame="__IM" $type="org.apache.felix.ipojo.InstanceManager" }field { $na
+ me="__FplatformEclipseService" $type="boolean" }field { $name="eclipse
+ Service" $type="fr.imag.adele.fede.workspace.as.eclipse.IEclipse" }fie
+ ld { $name="__MgetInitModelService" $type="boolean" }field { $name="__
+ FworkspaceCU" $type="boolean" }field { $name="platformEclipseService" 
+ $type="fr.imag.adele.fede.workspace.as.platformeclipse.IPlatformEclips
+ e" }field { $name="__MgetCadseDomain" $type="boolean" }field { $name="
+ loadCadseModelService" $type="fr.imag.adele.fede.workspace.as.initmode
+ l.IInitModel" }field { $name="__FloadCadseModelService" $type="boolean
+ " }field { $name="workspaceCU" $type="fr.imag.adele.cadse.core.CadseDo
+ main" }field { $name="__MgetPersistenceService" $type="boolean" }metho
+ d { $name="__getworkspaceCU" $return="fr.imag.adele.cadse.core.CadseDo
+ main" }method { $arguments="{fr.imag.adele.cadse.core.CadseDomain}" $n
+ ame="__setworkspaceCU" }method { $name="__getloadCadseModelService" $r
+ eturn="fr.imag.adele.fede.workspace.as.initmodel.IInitModel" }method {
+  $arguments="{fr.imag.adele.fede.workspace.as.initmodel.IInitModel}" $
+ name="__setloadCadseModelService" }method { $name="__getpersistenceSer
+ vice" $return="fr.imag.adele.fede.workspace.as.persistence.IPersistenc
+ e" }method { $arguments="{fr.imag.adele.fede.workspace.as.persistence.
+ IPersistence}" $name="__setpersistenceService" }method { $name="__getp
+ latformEclipseService" $return="fr.imag.adele.fede.workspace.as.platfo
+ rmeclipse.IPlatformEclipse" }method { $arguments="{fr.imag.adele.fede.
+ workspace.as.platformeclipse.IPlatformEclipse}" $name="__setplatformEc
+ lipseService" }method { $name="__geteclipseService" $return="fr.imag.a
+ dele.fede.workspace.as.eclipse.IEclipse" }method { $arguments="{fr.ima
+ g.adele.fede.workspace.as.eclipse.IEclipse}" $name="__seteclipseServic
+ e" }method { $name="$init" }method { $arguments="{org.apache.felix.ipo
+ jo.InstanceManager}" $name="$init" }method { $name="start" }method { $
+ name="__start" }method { $name="getPersistenceService" $return="fr.ima
+ g.adele.fede.workspace.as.persistence.IPersistence" }method { $name="_
+ _getPersistenceService" $return="fr.imag.adele.fede.workspace.as.persi
+ stence.IPersistence" }method { $name="getInitModelService" $return="fr
+ .imag.adele.fede.workspace.as.initmodel.IInitModel" }method { $name="_
+ _getInitModelService" $return="fr.imag.adele.fede.workspace.as.initmod
+ el.IInitModel" }method { $name="getCadseDomain" $return="fr.imag.adele
+ .cadse.core.CadseDomain" }method { $name="__getCadseDomain" $return="f
+ r.imag.adele.cadse.core.CadseDomain" }method { $name="getPlatformEclip
+ seService" $return="fr.imag.adele.fede.workspace.as.platformeclipse.IP
+ latformEclipse" }method { $name="__getPlatformEclipseService" $return=
+ "fr.imag.adele.fede.workspace.as.platformeclipse.IPlatformEclipse" }me
+ thod { $arguments="{boolean}" $name="openDialog" $return="fr.imag.adel
+ e.cadse.core.CadseRuntime[]" }method { $arguments="{boolean}" $name="_
+ _openDialog" $return="fr.imag.adele.cadse.core.CadseRuntime[]" }interf
+ ace { $name="fr.imag.adele.fede.workspace.si.loadall.ILoadAllService" 
+ }}requires { $field="workspaceCU" $optional="true" $filter="(sam.domai
+ n.root=Workspace)" }requires { $field="loadCadseModelService" $optiona
+ l="false" }requires { $field="persistenceService" $optional="false" }r
+ equires { $field="platformEclipseService" $optional="false" }requires 
+ { $field="eclipseService" $optional="false" }}instance { $component="f
+ r.imag.adele.fede.workspace.si.loadall.LoadAll" $name="fr.imag.adele.c
+ adse.si.workspace.loadall.instance" }
+ipojo-auto-start: true
 
