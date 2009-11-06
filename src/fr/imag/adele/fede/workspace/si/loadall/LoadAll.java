@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseRuntime;
 import fr.imag.adele.fede.workspace.as.eclipse.IEclipse;
+import fr.imag.adele.fede.workspace.as.eclipse.SWTService;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
 import fr.imag.adele.fede.workspace.as.platformeclipse.IPlatformEclipse;
@@ -55,7 +56,7 @@ public class LoadAll implements ILoadAllService {
 	/**
 	 * @generated
 	 */
-	IEclipse				eclipseService;
+	SWTService				eclipseService;
 
 	public void start() {
 		INSTANCE = this;
