@@ -115,7 +115,7 @@ public class LoadJob {
 			ErrorWhenLoadedModel {
 		// wsDomain.endOperation();// release le lock en attendant que le ui est
 		// demarrer
-		et.getPlatformEclipseService().waitUI();
+		et.getPlatformIDE().waitUI();
 		// wsDomain.beginOperation("loadNewWS");
 		CadseRuntime[] sCadsesNameToLoad = et.openDialog(false);
 		if (sCadsesNameToLoad != null) {
@@ -194,7 +194,7 @@ public class LoadJob {
 	private static void loadWorkspaceInThread(final ILoadAllService et) throws CadseException, ErrorWhenLoadedModel {
 		sprintf(System.out, "Begin load : %tT", new Date());
 
-		et.getPlatformEclipseService().getLocation(true);
+		et.getPlatformIDE().getLocation(true);
 
 		final IPersistence wsPersitence = et.getPersistenceService();
 

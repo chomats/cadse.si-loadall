@@ -1,21 +1,83 @@
 Manifest-Version: 1.0
-Export-Package: fr.imag.adele.fede.workspace.si.loadall;uses:="fr.imag
- .adele.cadse.as.platformide,fr.imag.adele.fede.workspace.as.persisten
- ce,fr.imag.adele.cadse.core,fr.imag.adele.fede.workspace.as.initmodel
- ,org.eclipse.ui,org.eclipse.swt.widgets"
-Built-By: chomats
-Tool: Bnd-0.0.357
+Bundle-ManifestVersion: 2
 Bundle-Name: fr.imag.adele.cadse.si.loadall
-Created-By: Apache Maven Bundle Plugin
+Bundle-SymbolicName: fr.imag.adele.cadse.si.loadall
 Bundle-Vendor: Adele/LIG/ Grenoble University, France
 Bundle-Version: 2.3.0.SNAPSHOT
-Build-Jdk: 1.6.0_17
-Bnd-LastModified: 1261583066646
-Bundle-ManifestVersion: 2
-Import-Package: fr.imag.adele.cadse.as.platformide,fr.imag.adele.cadse
- .core,fr.imag.adele.fede.workspace.as.initmodel,fr.imag.adele.fede.wo
- rkspace.as.persistence,fr.imag.adele.fede.workspace.si.loadall,org.ec
- lipse.swt.widgets,org.eclipse.ui;ui.workbench=split
 Bundle-DocURL: http://www-adele.imag.fr/
-Bundle-SymbolicName: fr.imag.adele.cadse.si.loadall
+Export-Package: fr.imag.adele.fede.workspace.si.loadall;
+  uses:="fr.imag.adele.cadse.as.platformide,
+   fr.imag.adele.fede.workspace.as.persistence,
+   fr.imag.adele.cadse.core,
+   fr.imag.adele.fede.workspace.as.initmodel,
+   org.eclipse.ui,
+   org.eclipse.swt.widgets"
+Import-Package: fr.imag.adele.cadse.as.platformide,
+ fr.imag.adele.cadse.core,
+ fr.imag.adele.fede.workspace.as.initmodel,
+ fr.imag.adele.fede.workspace.as.persistence,
+ fr.imag.adele.fede.workspace.si.loadall,
+ org.apache.felix.ipojo;version="1.2.0",
+ org.apache.felix.ipojo.architecture;version="1.2.0",
+ org.eclipse.swt.widgets,
+ org.eclipse.ui;ui.workbench="split",
+ org.osgi.service.cm;version="1.2",
+ org.osgi.service.log;version="1.3"
+Bnd-LastModified: 1261583066646
+Build-Jdk: 1.6.0_17
+Built-By: chomats
+Created-By: Apache Maven Bundle Plugin & iPOJO  1.2.0
+Tool: Bnd-0.0.357
+iPOJO-Components: component { $immediate="true" $classname="fr.imag.ade
+ le.fede.workspace.si.loadall.LoadAll" $factory="fr.imag.adele.fede.wor
+ kspace.si.loadall.LoadAll" $architecture="true" callback { $transition
+ ="validate" $method="start" }manipulation { field { $name="__Fpersiste
+ nceService" $type="boolean" }field { $name="__Mstart" $type="boolean" 
+ }field { $name="__MgetPlatformIDE" $type="boolean" }field { $name="per
+ sistenceService" $type="fr.imag.adele.fede.workspace.as.persistence.IP
+ ersistence" }field { $name="__MopenDialog$boolean" $type="boolean" }fi
+ eld { $name="__IM" $type="org.apache.felix.ipojo.InstanceManager" }fie
+ ld { $name="__MgetInitModelService" $type="boolean" }field { $name="__
+ FworkspaceCU" $type="boolean" }field { $name="__MgetCadseDomain" $type
+ ="boolean" }field { $name="__FplatformIde" $type="boolean" }field { $n
+ ame="platformIde" $type="fr.imag.adele.cadse.as.platformide.IPlatformI
+ DE" }field { $name="loadCadseModelService" $type="fr.imag.adele.fede.w
+ orkspace.as.initmodel.IInitModel" }field { $name="__FloadCadseModelSer
+ vice" $type="boolean" }field { $name="workspaceCU" $type="fr.imag.adel
+ e.cadse.core.CadseDomain" }field { $name="__MgetPersistenceService" $t
+ ype="boolean" }method { $name="__getworkspaceCU" $return="fr.imag.adel
+ e.cadse.core.CadseDomain" }method { $arguments="{fr.imag.adele.cadse.c
+ ore.CadseDomain}" $name="__setworkspaceCU" }method { $name="__getloadC
+ adseModelService" $return="fr.imag.adele.fede.workspace.as.initmodel.I
+ InitModel" }method { $arguments="{fr.imag.adele.fede.workspace.as.init
+ model.IInitModel}" $name="__setloadCadseModelService" }method { $name=
+ "__getpersistenceService" $return="fr.imag.adele.fede.workspace.as.per
+ sistence.IPersistence" }method { $arguments="{fr.imag.adele.fede.works
+ pace.as.persistence.IPersistence}" $name="__setpersistenceService" }me
+ thod { $name="__getplatformIde" $return="fr.imag.adele.cadse.as.platfo
+ rmide.IPlatformIDE" }method { $arguments="{fr.imag.adele.cadse.as.plat
+ formide.IPlatformIDE}" $name="__setplatformIde" }method { $name="$init
+ " }method { $arguments="{org.apache.felix.ipojo.InstanceManager}" $nam
+ e="$init" }method { $name="start" }method { $name="__start" }method { 
+ $name="getPersistenceService" $return="fr.imag.adele.fede.workspace.as
+ .persistence.IPersistence" }method { $name="__getPersistenceService" $
+ return="fr.imag.adele.fede.workspace.as.persistence.IPersistence" }met
+ hod { $name="getInitModelService" $return="fr.imag.adele.fede.workspac
+ e.as.initmodel.IInitModel" }method { $name="__getInitModelService" $re
+ turn="fr.imag.adele.fede.workspace.as.initmodel.IInitModel" }method { 
+ $name="getCadseDomain" $return="fr.imag.adele.cadse.core.CadseDomain" 
+ }method { $name="__getCadseDomain" $return="fr.imag.adele.cadse.core.C
+ adseDomain" }method { $name="getPlatformIDE" $return="fr.imag.adele.ca
+ dse.as.platformide.IPlatformIDE" }method { $name="__getPlatformIDE" $r
+ eturn="fr.imag.adele.cadse.as.platformide.IPlatformIDE" }method { $arg
+ uments="{boolean}" $name="openDialog" $return="fr.imag.adele.cadse.cor
+ e.CadseRuntime[]" }method { $arguments="{boolean}" $name="__openDialog
+ " $return="fr.imag.adele.cadse.core.CadseRuntime[]" }interface { $name
+ ="fr.imag.adele.fede.workspace.si.loadall.ILoadAllService" }}requires 
+ { $field="workspaceCU" $optional="true" $filter="(sam.domain.root=Work
+ space)" }requires { $field="loadCadseModelService" $optional="false" }
+ requires { $field="persistenceService" $optional="false" }requires { $
+ field="platformIde" $optional="false" }}instance { $component="fr.imag
+ .adele.fede.workspace.si.loadall.LoadAll" $name="fr.imag.adele.cadse.s
+ i.workspace.loadall.instance" }
 
