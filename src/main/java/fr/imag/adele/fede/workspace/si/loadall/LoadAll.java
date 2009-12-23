@@ -20,13 +20,11 @@ package fr.imag.adele.fede.workspace.si.loadall;
 
 import java.util.logging.Logger;
 
+import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseRuntime;
-import fr.imag.adele.fede.workspace.as.eclipse.IEclipse;
-import fr.imag.adele.fede.workspace.as.eclipse.SWTService;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
-import fr.imag.adele.fede.workspace.as.platformeclipse.IPlatformEclipse;
 
 /**
  * @generated
@@ -51,12 +49,7 @@ public class LoadAll implements ILoadAllService {
 	/**
 	 * @generated
 	 */
-	IPlatformEclipse		platformEclipseService;
-
-	/**
-	 * @generated
-	 */
-	SWTService				eclipseService;
+	IPlatformIDE		platformIde;
 
 	public void start() {
 		INSTANCE = this;
@@ -108,8 +101,8 @@ public class LoadAll implements ILoadAllService {
 	 * 
 	 * @see fr.imag.adele.fede.workspace.si.loadall.ILoadAllService#getPlatformEclipseService()
 	 */
-	public IPlatformEclipse getPlatformEclipseService() {
-		return platformEclipseService;
+	public IPlatformIDE getPlatformIDE() {
+		return platformIde;
 	}
 
 	/*
@@ -118,6 +111,6 @@ public class LoadAll implements ILoadAllService {
 	 * @see fr.imag.adele.fede.workspace.si.loadall.ILoadAllService#openDialog(boolean)
 	 */
 	public CadseRuntime[] openDialog(boolean askToErase) {
-		return eclipseService.openDialog(askToErase);
+		return platformIde.openDialog(askToErase);
 	}
 }
