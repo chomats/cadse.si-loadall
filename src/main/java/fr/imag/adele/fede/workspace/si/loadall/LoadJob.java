@@ -32,6 +32,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
 
+import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseException;
 import fr.imag.adele.cadse.core.CadseRuntime;
@@ -194,12 +195,15 @@ public class LoadJob {
 	private static void loadWorkspaceInThread(final ILoadAllService et) throws CadseException, ErrorWhenLoadedModel {
 		sprintf(System.out, "Begin load : %tT", new Date());
 
-		et.getPlatformIDE().getLocation(true);
+		IPlatformIDE platformIDE = et.getPlatformIDE();
+		if (platformIDE == null) {
+			throw new ErrorWhenLoadedModel("Can't find the Ide service !!");
+		}
+		platformIDE.getLocation(true);
 
 		final IPersistence wsPersitence = et.getPersistenceService();
 
-		final IInitModel im;
-		im = et.getInitModelService();
+		final IInitModel im = et.getInitModelService();
 		if (im == null) {
 			throw new ErrorWhenLoadedModel("Can't find the Init model service !!");
 		}
