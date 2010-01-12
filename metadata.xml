@@ -5,8 +5,7 @@
 		<requires field="workspaceCU" optional="true" filter="(sam.domain.root=Workspace)"/>
 		<requires field="loadCadseModelService" optional="false"/>
 		<requires field="persistenceService" optional="false"/>
-		<requires field="platformEclipseService" optional="false"/>
-		<requires field="eclipseService" optional="false"/>
+		<requires field="platformIde" optional="false"/>
 	</component>
 	<instance component="fr.imag.adele.fede.workspace.si.loadall.LoadAll" name="fr.imag.adele.cadse.si.workspace.loadall.instance"/>
 </ipojo>
