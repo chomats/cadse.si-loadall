@@ -32,13 +32,13 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
 
-import fede.workspace.role.initmodel.ErrorWhenLoadedModel;
+import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseException;
 import fr.imag.adele.cadse.core.CadseRuntime;
 import fr.imag.adele.cadse.core.LogicalWorkspace;
 import fr.imag.adele.cadse.core.WSModelState;
-import fr.imag.adele.cadse.core.impl.internal.CadseDomainImpl;
+import fr.imag.adele.fede.workspace.as.initmodel.ErrorWhenLoadedModel;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
 
@@ -116,7 +116,7 @@ public class LoadJob {
 			ErrorWhenLoadedModel {
 		// wsDomain.endOperation();// release le lock en attendant que le ui est
 		// demarrer
-		et.getPlatformEclipseService().waitUI();
+		et.getPlatformIDE().waitUI();
 		// wsDomain.beginOperation("loadNewWS");
 		CadseRuntime[] sCadsesNameToLoad = et.openDialog(false);
 		if (sCadsesNameToLoad != null) {
@@ -195,12 +195,15 @@ public class LoadJob {
 	private static void loadWorkspaceInThread(final ILoadAllService et) throws CadseException, ErrorWhenLoadedModel {
 		sprintf(System.out, "Begin load : %tT", new Date());
 
-		et.getPlatformEclipseService().getLocation(true);
+		IPlatformIDE platformIDE = et.getPlatformIDE();
+		if (platformIDE == null) {
+			throw new ErrorWhenLoadedModel("Can't find the Ide service !!");
+		}
+		platformIDE.getLocation(true);
 
 		final IPersistence wsPersitence = et.getPersistenceService();
 
-		final IInitModel im;
-		im = et.getInitModelService();
+		final IInitModel im = et.getInitModelService();
 		if (im == null) {
 			throw new ErrorWhenLoadedModel("Can't find the Init model service !!");
 		}
@@ -269,10 +272,6 @@ public class LoadJob {
 				theCurrentModel.setState(WSModelState.RUN);
 			}
 
-			wsPersitence.enablePersistance();
-			sprintf(System.out, "End load : %tT", new Date());
-			CadseDomainImpl.init();
-			sprintf(System.out, "End load after init : %tT", new Date());
 		} finally {
 			// wsDomain.endOperation();
 
