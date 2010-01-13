@@ -23,7 +23,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>fr.imag.adele.fede.workspace.si.loadall</Export-Package>
+                        <Export-Package>fr.imag.adele.fede.workspace.si.loadall;version="${version.cadse}"</Export-Package>
+                        <Import-Package>org.eclipse.ui;ui.workbench=!, *</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
