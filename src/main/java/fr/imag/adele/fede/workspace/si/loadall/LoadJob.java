@@ -133,6 +133,7 @@ public class LoadJob {
 			LogicalWorkspace theWorkspaceLogique = wsDomain.getLogicalWorkspace();
 
 			theWorkspaceLogique.setState(WSModelState.LOAD);
+			theWorkspaceLogique.waitStart();
 			theWorkspaceLogique.setState(WSModelState.RUN);
 			try {
 				// IWorkbenchWindow win =
