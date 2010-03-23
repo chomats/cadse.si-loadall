@@ -49,7 +49,7 @@ import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
  */
 public class LoadJob {
 
-	public static final String	CADSES_TO_EXECUTE	= "fr.imag.adele.cadse.execute";
+	
 
 	/** The Constant PLUGIN_ID. */
 	public static final String	PLUGIN_ID			= "fede.tool.workspace.view";	//$NON-NLS-1$
@@ -234,7 +234,7 @@ public class LoadJob {
 			}
 		}
 		// look the properties CADSES_TO_EXECUTE
-		String addCadseName = System.getProperty(CADSES_TO_EXECUTE);
+		String addCadseName = System.getProperty(LogicalWorkspace.CADSES_TO_EXECUTE);
 		if (addCadseName != null) {
 			String[] addCadseNameArray = addCadseName.split(",");
 
