@@ -208,6 +208,8 @@ public class LoadJob {
 		if (im == null) {
 			throw new ErrorWhenLoadedModel("Can't find the Init model service !!");
 		}
+		//see cadse to load. Null if first
+		String[] cadsesNameSaved = wsPersitence.getCadsesName();
 
 		// load all cadse
 		CadseRuntime[] cadsePresents = im.loadCadses();
@@ -217,8 +219,7 @@ public class LoadJob {
 		for (CadseRuntime cr : cadsePresents) {
 			crByName.put(cr.getName(), cr);
 		}
-
-		String[] cadsesNameSaved = wsPersitence.getCadsesName();
+		
 		HashSet<CadseRuntime> toRun = new HashSet<CadseRuntime>();
 
 		if (cadsesNameSaved != null) {
