@@ -24,7 +24,6 @@
                 <configuration>
                     <instructions>
                         <Export-Package>fr.imag.adele.fede.workspace.si.loadall;version="${version.cadse}"</Export-Package>
-                        <Import-Package>org.eclipse.ui;ui.workbench=!, *</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
@@ -48,21 +47,8 @@
         	<artifactId>cu.core</artifactId>
         </dependency>
         <dependency>
-        	<groupId>org.eclipse</groupId>
-        	<artifactId>org.eclipse.ui.workbench</artifactId>
-        </dependency>
-        <dependency>
-        	<groupId>org.eclipse</groupId>
-        	<artifactId>swt</artifactId>
-        	<type>pom</type>
-        </dependency>
-        <dependency>
-        	<groupId>org.eclipse</groupId>
-        	<artifactId>org.eclipse.equinox.common</artifactId>
-        </dependency>
-        <dependency>
-        	<groupId>org.eclipse</groupId>
-        	<artifactId>org.eclipse.jface</artifactId>
+        	<groupId>${project.groupId}</groupId>
+        	<artifactId>as.loadservice</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -25,12 +25,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.WorkbenchException;
 
 import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
@@ -38,6 +32,7 @@ import fr.imag.adele.cadse.core.CadseException;
 import fr.imag.adele.cadse.core.CadseRuntime;
 import fr.imag.adele.cadse.core.LogicalWorkspace;
 import fr.imag.adele.cadse.core.WSModelState;
+import fr.imag.adele.cadse.workspace.as.loadservice.LoadService;
 import fr.imag.adele.fede.workspace.as.initmodel.ErrorWhenLoadedModel;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
@@ -133,33 +128,20 @@ public class LoadJob {
 			LogicalWorkspace theWorkspaceLogique = wsDomain.getLogicalWorkspace();
 
 			theWorkspaceLogique.setState(WSModelState.LOAD);
+			runLoadService(et, WSModelState.LOAD);
 			theWorkspaceLogique.waitStart();
 			theWorkspaceLogique.setState(WSModelState.RUN);
+			runLoadService(et, WSModelState.RUN);
+		}
+	}
+
+	protected static void runLoadService(ILoadAllService et, WSModelState state) {
+		LoadService[] loadServices = et.getLoadServices();
+		if (loadServices == null || loadServices.length == 0) return;
+		for (LoadService ls : loadServices) {
 			try {
-				// IWorkbenchWindow win =
-				// PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-
-				final IWorkbench workbench = PlatformUI.getWorkbench();
-				Runnable r = new Runnable() {
-					public void run() {
-						IWorkbenchWindow[] win = workbench.getWorkbenchWindows();
-						if (win != null && win.length == 1) {
-							IWorkbenchPage page;
-							try {
-								page = workbench.showPerspective("fede.tool.workspace.workspacePerspective", win[0]);
-								win[0].setActivePage(page);
-							} catch (WorkbenchException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-
-						}
-					}
-				};
-				final Display currentDisplay = workbench.getDisplay();
-				currentDisplay.asyncExec(r);
-
-			} catch (Throwable e) {
+				ls.run(state);
+			} catch (CadseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
