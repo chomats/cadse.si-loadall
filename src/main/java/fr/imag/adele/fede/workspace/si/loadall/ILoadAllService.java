@@ -21,11 +21,14 @@ package fr.imag.adele.fede.workspace.si.loadall;
 import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseRuntime;
+import fr.imag.adele.cadse.workspace.as.loadservice.LoadService;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
 
 public interface ILoadAllService {
 
+	public abstract LoadService[]	 getLoadServices();
+	
 	public abstract IPersistence getPersistenceService();
 
 	public abstract IInitModel getInitModelService();

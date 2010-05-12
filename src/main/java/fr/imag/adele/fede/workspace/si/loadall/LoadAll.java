@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseRuntime;
+import fr.imag.adele.cadse.workspace.as.loadservice.LoadService;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
 
@@ -50,6 +51,8 @@ public class LoadAll implements ILoadAllService {
 	 * @generated
 	 */
 	IPlatformIDE		platformIde;
+	
+	LoadService[]		loadServices;
 
 	public void start() {
 		INSTANCE = this;
@@ -112,5 +115,10 @@ public class LoadAll implements ILoadAllService {
 	 */
 	public CadseRuntime[] openDialog(boolean askToErase) {
 		return platformIde.openDialog(askToErase);
+	}
+	
+	
+	public LoadService[] getLoadServices() {
+		return loadServices;
 	}
 }

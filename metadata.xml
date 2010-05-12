@@ -6,6 +6,7 @@
 		<requires field="loadCadseModelService" optional="false"/>
 		<requires field="persistenceService" optional="false"/>
 		<requires field="platformIde" optional="false"/>
+		<requires field="loadServices" optional="true" />
 	</component>
 	<instance component="fr.imag.adele.fede.workspace.si.loadall.LoadAll" name="fr.imag.adele.cadse.si.workspace.loadall.instance"/>
 </ipojo>
