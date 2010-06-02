@@ -44,11 +44,6 @@ import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
  */
 public class LoadJob {
 
-	
-
-	/** The Constant PLUGIN_ID. */
-	public static final String	PLUGIN_ID			= "fede.tool.workspace.view";	//$NON-NLS-1$
-
 	/**
 	 * Load workspace.
 	 * 
