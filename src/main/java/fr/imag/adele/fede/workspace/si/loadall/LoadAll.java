@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import fr.imag.adele.cadse.as.platformide.IPlatformIDE;
 import fr.imag.adele.cadse.core.CadseDomain;
 import fr.imag.adele.cadse.core.CadseRuntime;
+import fr.imag.adele.cadse.core.LogicalWorkspace;
 import fr.imag.adele.cadse.workspace.as.loadservice.LoadService;
 import fr.imag.adele.fede.workspace.as.initmodel.IInitModel;
 import fr.imag.adele.fede.workspace.as.persistence.IPersistence;
@@ -59,13 +60,19 @@ public class LoadAll implements ILoadAllService {
 		Logger mLogger = Logger.getLogger("SI.Workspace.LoadAll");
 		mLogger.info("begin load before");
 		mLogger.info("start");
-		if (getCadseDomain() == null) {
+		CadseDomain cadseDomain = getCadseDomain();
+		if (cadseDomain == null) {
 			mLogger.severe("Workspace core is null!!");
 		} else {
-			mLogger.info("Workspace logique " + getCadseDomain().getLogicalWorkspace());
+			LogicalWorkspace lw = cadseDomain.getLogicalWorkspace();
+			if (lw == null)
+				mLogger.severe("Workspace core is null!!");
+			else
+				mLogger.info("Workspace logique " + cadseDomain.getLogicalWorkspace());
 		}
 		mLogger.info("begin load");
 		LoadJob.loadWorkspace(this);
+		mLogger.info("finish load");
 	}
 
 	/*
