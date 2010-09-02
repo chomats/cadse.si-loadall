@@ -2,11 +2,11 @@
 <ipojo>
 	<component immediate="true" classname="fr.imag.adele.fede.workspace.si.loadall.LoadAll" factory="fr.imag.adele.fede.workspace.si.loadall.LoadAll" architecture="true">
 		<callback transition="validate" method="start"/>
-		<requires field="workspaceCU" optional="false" filter="(sam.domain.root=Workspace)"/>
-		<requires field="loadCadseModelService" optional="false"/>
-		<requires field="persistenceService" optional="false"/>
-		<requires field="platformIde" optional="false"/>
-		<requires field="loadServices" optional="true" />
+		<requires field="workspaceCU" optional="false" filter="(sam.domain.root=Workspace)" proxy="false" nullable="false"/>
+		<requires field="loadCadseModelService" optional="false" proxy="false" nullable="false"/>
+		<requires field="persistenceService" optional="false" proxy="false" nullable="false"/>
+		<requires field="platformIde" optional="false" proxy="false" nullable="false"/>
+		<requires field="loadServices" optional="true"  proxy="false" nullable="false"/>
 	</component>
 	<instance component="fr.imag.adele.fede.workspace.si.loadall.LoadAll" name="fr.imag.adele.cadse.si.workspace.loadall.instance"/>
 </ipojo>
